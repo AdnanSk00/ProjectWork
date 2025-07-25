@@ -1,0 +1,12 @@
+.main-footer {
+	background: #1c1b29;
+	color: #f0f0f0;
+	text-align: center;
+	padding: 5px 5px;
+	font-size: 0.95rem;
+	box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.6);
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	position : sticky;
+	bottom : 0;
+	width : 100%;
+}

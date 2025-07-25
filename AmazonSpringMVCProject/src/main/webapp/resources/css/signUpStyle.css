@@ -1,0 +1,91 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background: linear-gradient(90deg, #1f1c2c, #928dab);
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+main {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 50px 0;
+}
+
+.signup-box {
+	background-color: rgba(255, 255, 255, 0.95);
+	padding: 40px;
+	border-radius: 12px;
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+	width: 400px;
+	text-align: center;
+}
+
+.signup-box h2 {
+	margin-bottom: 30px;
+	color: #333;
+}
+
+.signup-box input[type="text"],
+.signup-box input[type="email"],
+.signup-box input[type="password"],
+.signup-box input[type="tel"] {
+	width: 100%;
+	padding: 12px;
+	margin: 10px 0;
+	border: none;
+	border-radius: 8px;
+	box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+	outline: none;
+	font-size: 1rem;
+	transition: box-shadow 0.3s ease;
+}
+
+.signup-box input:focus {
+	box-shadow: 0 0 10px #00bcd4, 0 0 5px #00bcd4;
+}
+
+.signup-box input[type="submit"] {
+	background: linear-gradient(to right, #ff416c, #ff4b2b);
+	color: white;
+	border: none;
+	padding: 12px 20px;
+	margin-top: 15px;
+	border-radius: 25px;
+	cursor: pointer;
+	transition: background 0.3s ease;
+	font-weight: bold;
+	width: 100%;
+}
+
+.signup-box input[type="submit"]:hover {
+	background: linear-gradient(to right, #92fe9d, #00c9ff);
+}
+
+.button-group {
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.button-group a {
+	flex: 1;
+	margin: 5px;
+	text-decoration: none;
+	background-color: transparent;
+	border: 2px solid #333;
+	color: #333;
+	padding: 10px 0;
+	border-radius: 25px;
+	transition: 0.3s ease;
+	font-weight: bold;
+}
+
+.button-group a:hover {
+	background-color: #333;
+	color: white;
+}
