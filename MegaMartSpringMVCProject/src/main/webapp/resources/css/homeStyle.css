@@ -1,0 +1,88 @@
+body.home-body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background: url('/resources/images/background.jpg') no-repeat center center fixed;
+	background-size: cover;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	color: #fff;
+}
+
+.overlay {
+	flex: 1;
+	background-color: rgba(0, 0, 0, 0.7);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 60px 20px;
+}
+
+.overlay h1 {
+	font-size: 3.5rem;
+	text-shadow: 2px 2px 8px #000;
+	margin-bottom: 20px;
+	color: #f9f9f9;
+}
+
+.overlay p {
+	font-size: 1.4rem;
+	max-width: 700px;
+	text-align: center;
+	margin-bottom: 40px;
+	color: #e0e0e0;
+}
+
+.feature-cards {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 30px;
+}
+
+.card {
+	background-color: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(6px);
+	color: #fff;
+	width: 260px;
+	padding: 25px;
+	border-radius: 12px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+	transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.card:hover {
+	transform: translateY(-6px);
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+.card h3 {
+	margin-bottom: 10px;
+	color: #ffd700;
+	font-size: 1.3rem;
+}
+
+.card p {
+	font-size: 1rem;
+	color: #ddd;
+}
+
+.footer {
+	background-color: rgba(0, 0, 0, 0.85);
+	color: #ccc;
+	text-align: center;
+	padding: 15px;
+}
+.msg {
+	color: #69b179;
+	padding: 12px;
+	margin-top: 10px;
+	font-size: 0.95rem;
+	font-weight: 500;
+	width:220px;
+	background-color: #070e2c;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

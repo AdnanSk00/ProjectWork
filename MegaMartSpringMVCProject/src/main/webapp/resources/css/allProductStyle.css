@@ -1,0 +1,26 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background: linear-gradient(90deg, #1f1c2c, #928dab);
+	display: flex;
+	flex-direction: column;
+	color : Gold;
+}
+
+.main{
+	height : 100vh;		
+}
+.table{
+/*	height : 50vh; */
+	width : 100vw;	
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background: linear-gradient(90deg, #1f1c2c, #928dab);
+	display: flex;
+	flex-direction: column;
+}
