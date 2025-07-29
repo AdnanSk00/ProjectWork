@@ -12,5 +12,11 @@ public interface productService {
 	public String addProduct(Product product);
 
 	public List<Product> getAllProduct();
+	
+	public Product getProductById(int id);
+
+	public String updateProduct(Product product);
+
+	public String deleteProduct(int id);
 
 }

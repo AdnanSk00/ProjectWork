@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.tka.ModelEntity.Product;
 
 @Repository
-public interface productDaoJPA extends JpaRepository<Product, Long> {
+public interface productDaoJPA extends JpaRepository<Product, Integer> {
 
 
 }

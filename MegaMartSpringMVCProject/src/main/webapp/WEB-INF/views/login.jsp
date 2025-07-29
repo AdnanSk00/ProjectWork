@@ -36,5 +36,8 @@
 </main>
 
 <%@ include file="footer.jsp" %>
+<script type="text/javascript">
+
+</script>
 </body>
 </html>

@@ -16,13 +16,38 @@ public class productServiceImpl implements productService{
 	
 	@Override
 	public String addProduct(Product product) {
-		prodDao.save(product);
-		return product.getProductName() + "added successfully...";
+		Product addProduct = prodDao.save(product);
+		if(addProduct != null) {
+			return product.getProductName() + " added successfully...";			
+		} else {
+			return product.getProductName() + " failed to add";
+		}
 	}
 
 	@Override
 	public List<Product> getAllProduct() {
 		return prodDao.findAll();
+	}
+
+	@Override
+	public Product getProductById(int id) {
+		return prodDao.getById(id);
+	}
+
+	@Override
+	public String updateProduct(Product product) {
+		Product addProduct = prodDao.save(product);
+		if(addProduct != null) {
+			return product.getProductName() + " updated successfully...";			
+		} else {
+			return product.getProductName() + " failed to update";
+		}
+	}
+
+	@Override
+	public String deleteProduct(int id) {
+		prodDao.deleteById(id);
+		return "product deleted successfully...";
 	}
 
 	

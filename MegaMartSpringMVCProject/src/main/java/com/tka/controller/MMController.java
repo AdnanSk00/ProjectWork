@@ -36,6 +36,11 @@ public class MMController {
 //		return "allProductsDetails";
 //	}
 	
+//	@GetMapping("/get-updateProduct")
+//	public String getUpdate() {
+//		return "update";
+//	}
+	
 	@GetMapping("/view-carts")
 	public String viewCartsDetails() {
 		return "cartsDetails";

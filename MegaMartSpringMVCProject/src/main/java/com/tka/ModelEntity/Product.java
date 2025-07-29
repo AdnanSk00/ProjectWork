@@ -10,11 +10,11 @@ import org.springframework.stereotype.Component;
 public class Product {
 
 	@Id
-	int productId;
-	String productName;
-	double price;
-	String description;
-	int quantity;
+	public int productId;
+	public String productName;
+	public double price;
+	public String description;
+	public int quantity;
 	
 	public Product() {
 		// TODO Auto-generated constructor stub

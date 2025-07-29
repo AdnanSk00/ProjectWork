@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="/resources/css/footerStyle.css" />
 </head>
 <body>
+
 </body>
 </html>
 

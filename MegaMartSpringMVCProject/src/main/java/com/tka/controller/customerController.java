@@ -24,7 +24,7 @@ public class customerController {
 		String msg, userMsg;
 
 		Customer cust = custSrvc.getCustomer(user.getUserName());
-		
+
 		if(cust != null) {
 			msg = "Login Successfully...";
 			userMsg = custSrvc.insertUser(user);
