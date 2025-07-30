@@ -22,7 +22,7 @@
 					<th>ID</th>
 					<th>Product Name</th>
 					<th>Price</th>
-					<th>Description</th>
+					<th>Category</th>
 					<th>Quantity</th>
 					<th><i>Update</i></th>
 					<th><i>Delete</i></th>
@@ -34,13 +34,10 @@
 						<td>${product.productId}</td>
 						<td>${product.productName}</td>
 						<td>${product.price}</td>
-						<td>${product.description}</td>
+						<td>${product.category}</td>
 						<td>${product.quantity}</td>
 						<td><a class="btn btn-update" href="/get-updateProduct/${product.productId}">Update</a></td>
-						<td><a class="btn btn-delete" href="#" onclick="confirmDelete(${product.productId})">Delete</a></td>
-
-						
-
+						<td><a class="btn btn-delete" href="/deleteProduct/${product.productId}" onclick="return confirm('Are you sure')">Delete</a></td>
 					</tr>
 				</c:forEach>
 			<tbody>
@@ -56,12 +53,6 @@
 				msg.style.display = "none";
 			}
 		}, 2000);
-		function confirmDelete(productId) {
-			const confirmAction = confirm("Are you sure you want to delete this product?");
-			if (confirmAction) {
-				window.location.href = `/delete-product/${productId}`;
-			}
-		}
 	</script>
 </body>
 

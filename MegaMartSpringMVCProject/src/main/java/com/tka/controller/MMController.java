@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MMController {
 	
-	@GetMapping("/")
-	public String getHomePage() {
-		return "home";
-	}
+//	@GetMapping("/")
+//	public String getHomePage() {
+//		return "home";
+//	}
 	
 	@GetMapping("/get-login")
 	public String getLoginPage() {
@@ -41,10 +41,10 @@ public class MMController {
 //		return "update";
 //	}
 	
-	@GetMapping("/view-carts")
-	public String viewCartsDetails() {
-		return "cartsDetails";
-	}
+//	@GetMapping("/view-carts")
+//	public String viewCartsDetails() {
+//		return "cartsDetails";
+//	}
 	
 	@GetMapping("/get-shopping")
 	public String getShop() {

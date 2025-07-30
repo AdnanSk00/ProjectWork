@@ -27,8 +27,8 @@
 		        <label>Price:</label>
 		        <input type="number" step="0.01" name="price" required />
 		
-		        <label>Description:</label>
-		        <textarea name="description" rows="3" placeholder="Enter product description"></textarea>
+		        <label>Category:</label>
+		        <input type="text" name="category" required />
 		
 		        <label>Quantity:</label>
 		        <input type="number" name="quantity" required />

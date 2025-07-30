@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     
 <%@ include file="header.jsp" %>
     
@@ -12,10 +13,38 @@
 
 </head>
 <body>
-	
-	
-	
-<%@ include file="footer.jsp" %>
+	<div id="product-section" class="product-section">
+		<h2>Featured Products</h2>
+		<div class="products">
+		
+		<c:forEach var="product" items="${productList}">
+			<div class="product-card">
+				<img src="${product.imgPath}" alt="${product.productName}" />
+				<div class="product-info">
+					<h4>${product.productName}</h4>
+					<p>Category: ${product.category}</p>
+					<p>Quantity: ${product.quantity}</p>
+					<p>₹${product.price}</p>
+				</div>
+				<div class="product-buttons">
+					<a class="btn-cart" href="/add-to-cart/${product.productId}">Add to Cart</a>
+					<button class="btn-buy">Buy Now</button>				
+				</div>
+			</div>
 
+		</c:forEach>
+		</div>
+	</div>
+
+<%@ include file="footer.jsp" %>
+	<script type="text/javascript">
+		//function addToCart(productId) {
+			//alert("Cart Added...");
+			//if (productId) {
+				//window.location.href = `/add-to-cart/${productId}`;
+			//}
+		//}
+	</script>
+	
 </body>
 </html>

@@ -19,9 +19,9 @@
 		<a href="/view-customer">Customer</a>
 		<a href="/get-product">Add Product</a>
 		<a href="/view-products">View Products</a>
-		<a href="/get-shopping">Shop</a>
+		<a href="/get-shop">Shop</a>
+		<a href="/view-carts">Carts</a>
 		<a href="/view-orders">Orders</a>
-		<a href="/view-bills">Bills</a>
 		<a href="/logout">Logout</a>
 	</nav>
 </header>

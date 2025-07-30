@@ -12,6 +12,6 @@ public class MegaMartSpringMvcProjectApplication {
 		SpringApplication.run(MegaMartSpringMvcProjectApplication.class, args);
 		
 		System.err.println("********* WELCOME TO AMAZON PROJECT *********");
-	}
 
+	}
 }
