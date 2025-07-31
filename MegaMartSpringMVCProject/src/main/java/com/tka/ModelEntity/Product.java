@@ -17,7 +17,7 @@ public class Product {
 	public int quantity;
 	public String imgPath;
 	
-	
+    
 	public Product() {
 		// TODO Auto-generated constructor stub
 	}
@@ -76,5 +76,6 @@ public class Product {
 				+ category + ", quantity=" + quantity + ", imgPath=" + imgPath + "]";
 	}
 	
+    
 	
 }

@@ -24,7 +24,7 @@
 		        <label>Product Name:</label>
 		        <input type="text" name="productName" value="${product.productName}" required />
 		
-		        <label>Price:</label>
+		        <label>(₹)Price:</label>
 		        <input type="number" step="0.01" name="price" value="${product.price}" required />
 		
 		        <label>Category:</label>

@@ -56,6 +56,7 @@ public class productController {
 	
 	@PostMapping("/update-product")
 	public String updateProduct(@ModelAttribute Product product, Model model) {
+		product.setImgPath("/resources/images/" + product.productName.toLowerCase() + ".jpg");
 		updMsg = productSrvc.updateProduct(product);
 		model.addAttribute("updMsg", updMsg);
 		return getAllProducts(model);
@@ -68,49 +69,5 @@ public class productController {
 		model.addAttribute("delMsg", delMsg);
 		return getAllProducts(model);
 	}
-	
-	@GetMapping("/get-shop")
-	public String getShop(Model model) {
-		List<Product> productList = productSrvc.getAllProduct();
-		model.addAttribute("productList", productList);
-		return "shop";
-	}
-	
-	@GetMapping("/add-to-cart/{id}")
-	public String addToCart(@PathVariable int id, HttpSession session) {
-	    List<Product> cartList = (List<Product>) session.getAttribute("cartList");
-	    System.err.println("errr.." + cartList);
-	    if (cartList == null) {
-	        cartList = new ArrayList<>();
-	    }
-	    Product product = productSrvc.getProductById(id);
-	    cartList.add(product);
-	    System.err.println("errrsfsdfd" + cartList);
-	    session.setAttribute("cartList", cartList);
-	    return "redirect:/get-shop"; // ensures page reload
-	}
-	
-	@GetMapping("/view-carts")
-	public String viewCartsDetails(Model model, HttpSession session) {
-		List<Product> cartList = (List<Product>) session.getAttribute("cartList");
-
-	    if (cartList == null) {
-	        cartList = new ArrayList<>();
-	        session.setAttribute("cartList", cartList);
-	    }
-	    model.addAttribute("cartList", cartList);
-	    return "cartsDetails";
-	}
-
-	@GetMapping("/remove-cart/{id}")
-	public String removeCart(@PathVariable int id, HttpSession session) {
-	    List<Product> cartList = (List<Product>) session.getAttribute("cartList");
-	    if (cartList != null) {
-	        cartList.removeIf(p -> p.getProductId() == id);
-	        session.setAttribute("cartList", cartList);
-	    }
-	    return "redirect:/view-carts";
-	}
-	
 
 }

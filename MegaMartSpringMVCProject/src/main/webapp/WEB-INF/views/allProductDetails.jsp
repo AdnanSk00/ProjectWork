@@ -13,8 +13,8 @@
 	
 </head>
 <body>
+	<h3 class="msg" style="color:green;">${updMsg}</h3>
 	<main class="main">
-		<h3 class="msg" style="color:green;">${updMsg}</h3>
 		<table class="table" border="1" cellpadding="6" cellspacing="1">
 			<caption> <h1> Product Details </h1></caption>
 			<thead>
@@ -37,7 +37,7 @@
 						<td>${product.category}</td>
 						<td>${product.quantity}</td>
 						<td><a class="btn btn-update" href="/get-updateProduct/${product.productId}">Update</a></td>
-						<td><a class="btn btn-delete" href="/deleteProduct/${product.productId}" onclick="return confirm('Are you sure')">Delete</a></td>
+						<td><a class="btn btn-delete" href="/deleteProduct/${product.productId}" onclick="return confirm('Are you sure you want to delete?')">Delete</a></td>
 					</tr>
 				</c:forEach>
 			<tbody>

@@ -41,20 +41,21 @@ public class MMController {
 //		return "update";
 //	}
 	
+//	@GetMapping("/get-shop")
+//	public String getShop() {
+//		return "shopDetails";
+//	}
+	
 //	@GetMapping("/view-carts")
 //	public String viewCartsDetails() {
 //		return "cartsDetails";
 //	}
 	
-	@GetMapping("/get-shopping")
-	public String getShop() {
-		return "shop";
-	}
+//	@GetMapping("/view-orders")
+//	public String viewOrdersDetails() {
+//		return "orders";
+//	}
 	
-	@GetMapping("/view-orders")
-	public String viewOrdersDetails() {
-		return "orders";
-	}
 	@GetMapping("/view-bills")
 	public String viewBillDetails() {
 		return "billDetails";

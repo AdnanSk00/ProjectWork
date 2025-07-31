@@ -86,6 +86,17 @@
 				productSection.scrollIntoView({ behavior: "smooth" });
 			}
 		}
+		function showCarts(){
+			alert("building...");
+			window.location.href = "/view-carts";
+		}
+		function showPayment(){
+			alert("building...");
+		}
+		function showOrders(){
+			alert("building...");
+			window.location.href = "/view-orders";
+		}
 	</script>
 
 	
