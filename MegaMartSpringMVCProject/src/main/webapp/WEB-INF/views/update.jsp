@@ -9,7 +9,7 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="/resources/css/updateStyle.css" />
-	<title>Amazon | Product</title>
+	<title>Update Product | MegaMart</title>
 	
 </head>
 <body>

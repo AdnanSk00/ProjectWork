@@ -8,7 +8,7 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="/resources/css/homeStyle.css" />
-	<title>Amazon | Home</title>
+	<title>Home | MegaMart</title>
 	
 </head>
 <body class="home-body">

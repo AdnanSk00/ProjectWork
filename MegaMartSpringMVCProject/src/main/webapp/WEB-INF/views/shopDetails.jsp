@@ -9,7 +9,7 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="/resources/css/shopStyle.css" />
-	<title>Shop | Amazon</title>
+	<title>Shop | MegaMart</title>
 
 </head>
 <body>

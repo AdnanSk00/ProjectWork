@@ -1,0 +1,79 @@
+body.home-body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background: linear-gradient(to bottom, #0d0d0d, #1a1a2e, #16213e, #0f3460); /* 🔥 merged rich dark gradient */
+	color: white;
+	min-height: 100vh;
+	overflow-x: hidden;
+}
+
+/* IPL Logo Section */
+.ipl-logo-section {
+	text-align: center;
+	padding: 60px 0 30px;
+}
+
+.ipl-main-logo {
+	width: 240px;
+	height: auto;
+	animation: fadeInDrop 1.2s ease-out;
+}
+
+@keyframes fadeInDrop {
+	from {
+		opacity: 0;
+		transform: translateY(-30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Team Logos Section (blends into background) */
+.team-logo-section {
+	padding: 20px 40px 60px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.team-row {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 40px;
+	margin-bottom: 40px;
+}
+
+.team-row img {
+	width: 120px;
+	height: 120px;
+	object-fit: contain;
+	border-radius: 20px;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.pbks{
+	width: 100px;
+	height: 100px;
+}
+
+.team-row img:hover {
+	transform: scale(1.08);
+	box-shadow: 0 0 18px #00ffe1;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+	.team-row img {
+		width: 80px;
+		height: 80px;
+	}
+	.team-row {
+		gap: 20px;
+	}
+}

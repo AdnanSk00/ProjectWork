@@ -8,7 +8,7 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="/resources/css/loginStyle.css" />
-	<title>Login | Amazon</title>
+	<title>Login | MegaMart</title>
 
 </head>
 <body>

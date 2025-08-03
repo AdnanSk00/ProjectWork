@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="/resources/css/signUpStyle.css" />
-	<title>Sign Up | Amazon</title>
+	<title>Sign Up | MegaMart</title>
 	
 </head>
 <body>

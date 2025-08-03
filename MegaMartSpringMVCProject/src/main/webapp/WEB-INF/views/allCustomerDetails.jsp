@@ -9,7 +9,7 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="/resources/css/allCustomerStyle.css" />
-	<title>Amazon | Customer</title>
+	<title>Customers | MegaMart</title>
 </head>
 <body>
 	<main class="main">
