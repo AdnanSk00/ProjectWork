@@ -46,19 +46,18 @@
 
 	<div class="team-logo-section">
 		<div class="team-row">
-			<img src="/resources/images/teamLogo/csk.svg" alt="CSK">
-			<img src="/resources/images/teamLogo/mi.svg" alt="MI">
-			<!-- <img src="/resources/images/teamLogo/rcb.svg" alt="RCB"> -->
-		<a href="/rcb-home"><img src="/resources/images/teamLogo/rcb.svg" alt="RCB"></a>
-			<img src="/resources/images/teamLogo/pbks.svg" alt="PBKS" class="pbks">
-			<img src="/resources/images/teamLogo/rr.png" alt="RR">
+			<a href="/csk-home"><img src="/resources/images/teamLogo/csk.svg" alt="CSK"></a>
+			<a href="/mi-home"><img src="/resources/images/teamLogo/mi.svg" alt="MI"></a>
+			<a href="/rcb-home"><img src="/resources/images/teamLogo/rcb.svg" alt="RCB"></a>
+			<a href="/pbks-home"><img src="/resources/images/teamLogo/pbks.svg" alt="PBKS" class="pbks"></a>
+			<a href="/r-home"><img src="/resources/images/teamLogo/rr.png" alt="RR"></a>
 		</div>
 		<div class="team-row">
-			<img src="/resources/images/teamLogo/dd.svg" alt="DC">
-			<img src="/resources/images/teamLogo/gt.svg" alt="GT">
-			<img src="/resources/images/teamLogo/kkr.svg" alt="KKR">
-			<img src="/resources/images/teamLogo/srh.svg" alt="SRH">
-			<img src="/resources/images/teamLogo/lsg.svg" alt="LSG">
+			<a href="/dc-home"><img src="/resources/images/teamLogo/dc.svg" alt="DC"></a>
+			<a href="/gt-home"><img src="/resources/images/teamLogo/gt.svg" alt="GT"></a>
+			<a href="/kkr-home"><img src="/resources/images/teamLogo/kkr.svg" alt="KKR"></a>
+			<a href="/srh-home"><img src="/resources/images/teamLogo/srh.svg" alt="SRH"></a>
+			<a href="/lsg-home"><img src="/resources/images/teamLogo/lsg.svg" alt="LSG"></a>
 		</div>
 	</div>
 
