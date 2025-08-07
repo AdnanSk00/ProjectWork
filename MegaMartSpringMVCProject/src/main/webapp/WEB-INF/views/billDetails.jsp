@@ -14,7 +14,7 @@
 <div class="bill-container">
     <h2>🧾 Order Summary</h2>
 	
-	<h3>Order ID: ${randomId}</h3>
+	<h3>Order ID: ${orderId}</h3>
     
     <c:forEach var="product" items="${billList}">
 	    <div class="bill-card">
@@ -27,6 +27,7 @@
 	        </div>
 	    </div>
 	</c:forEach>
+	
 	
 	<p class="total">
 	    <strong>Total Amount:</strong> ₹${totalAmount}

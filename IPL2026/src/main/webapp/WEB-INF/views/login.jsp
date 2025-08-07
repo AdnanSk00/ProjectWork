@@ -22,19 +22,19 @@
 	        <div class="form-box login">
 	            <h2 class="animation" style="--i:0; --j:21;">Login</h2>
 	            <form action="/verify-login" method="post">
-	                <div class="input-box animation" style="--i:1; --j:22;">
+	                <div class="input-box animation long" style="--i:1; --j:22;">
 	                    <label style="color: red;">${worngUserNameOrPass}</label>
 	                    <input type="text" name="userName" required>
 	                    <label>Username</label>
-	                    <!-- <i class='bx bxs-user'></i> -->
-	                    <img src="/resources/images/loginImg/bxs-user.svg" alt="">
+	                    <i class='bx bxs-user'></i>
+	                    <!-- <img src="/resources/images/loginImg/bxs-user.svg" alt=""> -->
 	                </div>
-	                <div class="input-box animation" style="--i:2; --j:23;">
+	                <div class="input-box animation long" style="--i:2; --j:23;">
 	                    <label style="color: red;">${wrongPass}</label>
 	                    <input type="password" name="pass" required>
 	                    <label>Password</label>
-	                    <!-- <i class='bx bxs-lock-alt'></i> -->
-	                    <img src="/resources/images/loginImg/bxs-lock-alt.svg" alt="">
+	                    <i class='bx bxs-lock-alt'></i>
+	                    <!-- <img src="/resources/images/loginImg/bxs-lock-alt.svg" alt=""> -->
 	                </div>
 	                <button type="submit" class="btn animation" style="--i:3; --j:24;">Login</button>	                
 			        <div class="logreg-link animation" style="--i:4; --j:25;">
@@ -54,36 +54,36 @@
 	        <div class="form-box register">
 	            <h2 class="animation" style="--i:17; --j:0">Sign Up</h2>
 	            <form action="/register-user" method="post">
-	                <div class="input-box animation" style="--i:18; --j:1;">
+	                <div class="input-box animation short" style="--i:18; --j:1;">
 	                    <input type="text" name="uid" required>
 	                    <label>ID</label>
-	                    <!-- <i class='bx bxs-id-card'></i> -->
-	                    <img src="/resources/images/loginImg/bxs-id-card.svg" alt="">
+	                    <i class='bx bxs-id-card'></i>
+	                    <!-- <img src="/resources/images/loginImg/bxs-id-card.svg" alt=""> -->
 	                </div>
-	                <div class="input-box animation" style="--i:19; --j:2;">
+	                <div class="input-box animation short" style="--i:19; --j:2;">
 	                    <input type="text" name="userName" required>
 	                    <label>Username</label>
-	                    <!-- <i class='bx bxs-user'></i> -->
+	                    <i class='bx bxs-user'></i>
 	                    
-	                    <img src="/resources/images/loginImg/bxs-user.svg" alt="">
+	                   <!--  <img src="/resources/images/loginImg/bxs-user.svg" alt=""> -->
 	                </div>
-	                <div class="input-box animation" style="--i:20; --j:3;">
+	                <div class="input-box animation short" style="--i:20; --j:3;">
 	                    <input type="email" name="email" required>
 	                    <label>Email</label>
-	                    <!-- <i class='bx bxs-envelope'></i> -->
-	                    <img src="/resources/images/loginImg/bxs-envelope.svg" alt="">
+	                    <i class='bx bxs-envelope'></i>
+	                    <!-- <img src="/resources/images/loginImg/bxs-envelope.svg" alt=""> -->
 	                </div>
-	                <div class="input-box animation" style="--i:21; --j:4;">
+	                <div class="input-box animation short" style="--i:21; --j:4;">
 	                    <input type="tel" name="mob" required>
 	                    <label>Phone</label>
-	                    <!-- <i class='bx bxs-phone'></i> -->
-	                    <img src="/resources/images/loginImg/bxs-phone.svg" alt="">
+	                    <i class='bx bxs-phone'></i>
+	                    <!-- <img src="/resources/images/loginImg/bxs-phone.svg" alt=""> -->
 	                </div>
-	                <div class="input-box animation" style="--i:22; --j:5;">
+	                <div class="input-box animation short" style="--i:22; --j:5;">
 	                    <input type="password" name="pass" required>
 	                    <label>Password</label>
-	                    <!-- <i class='bx bxs-lock-alt'></i> -->
-	                    <img src="/resources/images/loginImg/bxs-lock-alt.svg" alt="">
+	                    <i class='bx bxs-lock-alt'></i>
+	                    <!--  <img src="/resources/images/loginImg/bxs-lock-alt.svg" alt=""> -->
 	                </div>
 	                <button type="submit" class="btn animation" style="--i:21; --j:4;">Sign Up</button>
 	                <div class="logreg-link animation" style="--i:22; --j:5;">

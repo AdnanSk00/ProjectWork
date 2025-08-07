@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Orders | MegaMart</title>
+    <title>Orders | IPL</title>
     <link rel="stylesheet" type="text/css" href="/resources/css/orderStyle.css">
 </head>
 <body>

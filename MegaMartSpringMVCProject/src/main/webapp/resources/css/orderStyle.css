@@ -21,6 +21,11 @@ body {
     color: #4b0082;
 }
 
+.bill-section{
+	/* background: lightgrey;
+	margin: 4px; */
+}
+
 .bill-card {
     display: flex;
     align-items: center;

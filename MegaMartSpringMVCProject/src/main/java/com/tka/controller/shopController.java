@@ -71,10 +71,10 @@ public class shopController {
 	}
 	
 	@PostMapping("/buy-product")
-	public String buyNow(@RequestParam("selectedIds") List<Integer> selectedIds, HttpSession session, Model model) {
+	public String buyNow(@RequestParam("selectedIds") List<Integer> selectedIds, HttpSession session) {
 	    List<Product> cartList = (List<Product>) session.getAttribute("cartList");
 	    List<Product> selectedProducts = new ArrayList<>();
-	    
+
 	    if (cartList != null) {
 	        for (Product p : cartList) {
 	            if (selectedIds.contains(p.getProductId())) {
@@ -83,45 +83,86 @@ public class shopController {
 	        }
 	    }
 
-	    session.setAttribute("lastBill", selectedProducts);  // Save latest bill for billDetails.jsp
+	    double total = selectedProducts.stream().mapToDouble(Product::getPrice).sum();
 
-	    // Add to order history
-	    List<Product> orderList = (List<Product>) session.getAttribute("orderList");
-	    if (orderList == null) {
-	        orderList = new ArrayList<>();
+	    Bill bill = new Bill();
+	    bill.setBillId((int) (Math.random() * 255555));
+	    bill.setTotalAmount(total);
+
+	    // Assign this bill to each product
+	    for (Product p : selectedProducts) {
+	        p.setBill(bill); // Set FK
 	    }
-	    orderList.addAll(selectedProducts);
-	    session.setAttribute("orderList", orderList);
+
+	    bill.setProducts(selectedProducts); // Set list of products in bill
+
+	    billSrvc.saveBill(bill);
+
+	    session.setAttribute("lastBill", selectedProducts);
+	    session.setAttribute("orderList", selectedProducts);
 
 	    return "redirect:/bill-details";
 	}
 	
+//	@PostMapping("/buy-product")
+//	public String buyNow(@RequestParam("selectedIds") List<Integer> selectedIds, HttpSession session, Model model) {
+//	    List<Product> cartList = (List<Product>) session.getAttribute("cartList");
+//	    List<Product> selectedProducts = new ArrayList<>();
+//	    
+//	    if (cartList != null) {
+//	        for (Product p : cartList) {
+//	            if (selectedIds.contains(p.getProductId())) {
+//	                selectedProducts.add(p);
+//	            }
+//	        }
+//	    }
+//
+//	    session.setAttribute("lastBill", selectedProducts);  // Save latest bill for billDetails.jsp
+//
+//	    // Add to order history
+//	    List<Product> orderList = (List<Product>) session.getAttribute("orderList");
+//	    if (orderList == null) {
+//	        orderList = new ArrayList<>();
+//	    }
+//	    orderList.addAll(selectedProducts);
+//	    session.setAttribute("orderList", orderList);
+//
+//	    return "redirect:/bill-details";
+//	}
+	
 	@GetMapping("/bill-details")
 	public String getBillDetails(HttpSession session, Model model) {
 	    List<Product> billList = (List<Product>) session.getAttribute("lastBill");
+	    
 	    model.addAttribute("billList", billList);
 
+	    Bill bill = new Bill();
+	    bill.setBillId((int) (Math.random()*255555));
+	    
 	    double total = 0;
 	    if (billList != null) {
 	        for (Product p : billList) {
 	            total += p.getPrice();
 	        }
 	    }
-
-	    model.addAttribute("totalAmount", total);
+	    bill.setTotalAmount(total);
+	    
+	    model.addAttribute("orderId", bill.getBillId());
+	    model.addAttribute("totalAmount", bill.getTotalAmount());
+	    
 	    return "billDetails";  // JSP file
 	}
 
 	
 	@GetMapping("/buy-product/{id}")
 	public String buyNow(@PathVariable int id,  Model model, HttpSession session) {
-		Bill bill = new Bill();
-		bill.setBillId((int) (0+Math.random()*255555));
-		int randomId = bill.getBillId();
 		
 		Product product = productSrvc.getProductById(id);
 		List<Product> billList = new ArrayList<>();
 		billList.add(product);
+		
+		Bill bill = new Bill();
+		bill.setBillId((int) (Math.random()*255555));
 		
 		List<Product> orderList = (List<Product>) session.getAttribute("orderList");
 		 if (orderList == null) {
@@ -129,23 +170,25 @@ public class shopController {
 		    }
 		orderList.addAll(billList);
 		session.setAttribute("orderList", orderList);
-		System.err.println("orderrrrrr" + orderList);
 
-		double totalAmount = product.getPrice();
-		
-		model.addAttribute("randomId", randomId);
 		model.addAttribute("billList", billList);
 		model.addAttribute("orderList", orderList);
-		model.addAttribute("totalAmount", totalAmount);
+		model.addAttribute("orderId", bill.getBillId());
+		model.addAttribute("totalAmount", product.getPrice());
 		return "billDetails";
 	}
 	
+//	@GetMapping("/view-orders")
+//	public String getAllOrders(Model model, HttpSession session) {
+//		List<Bill> orderList = billSrvc.getAllOrders();
+//	    
+//		return "orderDetails";
+//	}
 	@GetMapping("/view-orders")
-	public String getAllOrders(Model model, HttpSession session) {
-		List<Product> orderList = (List<Product>) session.getAttribute("orderList");
-	    model.addAttribute("orderList", orderList);
-//	    model.addAttribute("randomId", randomId);
-	    
-		return "orderDetails";
+	public String getAllOrders(Model model) {
+	    List<Bill> orderList = billSrvc.getAllOrders(); // Fetch all bills
+	    model.addAttribute("bills", orderList);
+	    return "orderDetails";
 	}
+
 }

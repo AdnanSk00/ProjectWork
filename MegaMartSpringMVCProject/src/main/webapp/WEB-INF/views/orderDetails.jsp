@@ -16,21 +16,37 @@
 <div class="bill-container">
     <h2>🧾 Orders</h2>
     
-   	<c:forEach var="order" items="${orderList}">
-	    <div class="bill-card">
-	        <img src="${order.imgPath}" alt="Product Image">
+    <div class="bill-section">	
+	    <c:forEach var="bill" items="${bills}">	
+	    	<h3>Order ID: ${bill.billId}</h3>
+	    	<p>Total: ₹${bill.totalAmount}</p>
+		   	<c:forEach var="product" items="${bill.products}">
+			    <div class="bill-card">
+			        <img src="${product.imgPath}" alt="Product Image">
+			
+			        <div class="bill-details">
+			            <h3>${product.productName}</h3>
+			            <p><strong>Category:</strong> ${product.category}</p>
+			            <p><strong>Quantity:</strong> 1</p>
+			            <p><strong>Unit Price:</strong> ₹${product.price}</p>
+			        </div>
+			    </div>
+		    </c:forEach>
+		    <hr>
+		</c:forEach>
+	</div>
 	
-	        <div class="bill-details">
-	        	<h3>Order ID: ${randomId}</h3>
-	            <h3>${order.productName}</h3>
-	            <p><strong>Category:</strong> ${order.category}</p>
-	            <p><strong>Quantity:</strong> 1</p>
-	            <p><strong>Unit Price:</strong> ₹${order.price}</p>
-	            <hr>
-	            <p class="total"><strong>Total Amount:</strong> ₹${order.price}</p>
+    <%-- <c:forEach var="bill" items="${bills}">
+	    <h3>Order ID: ${bill.billId}</h3>
+	    <p>Total: ₹${bill.totalAmount}</p>
+	    <c:forEach var="product" items="${bill.products}">
+	        <div class="bill-card">
+	            <img src="${product.imgPath}" alt="">
+	            <p>${product.productName} | ₹${product.price}</p>
 	        </div>
-	    </div>
-    </c:forEach>
+	    </c:forEach>
+	    <hr>
+	</c:forEach> --%>
 
 </div>
 

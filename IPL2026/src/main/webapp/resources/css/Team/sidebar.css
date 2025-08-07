@@ -1,0 +1,147 @@
+.sidebar {
+  width: 250px;
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  animation: slideInLeft 0.6s ease-out;
+  
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.team-header {
+  text-align: center;
+}
+
+.team-header img{
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+}
+
+.team-header h2 {
+  font-size: 1.8rem;
+}
+
+.team-header .csk{
+	border: 3px solid #f7b733;
+	box-shadow: 0 0 12px #f7b733;
+}
+
+.team-header .CSK{
+	color: #f7b733;
+}
+
+.team-header .mi{
+	border: 3px solid #00c6ff;
+	box-shadow: 0 0 12px #00c6ff;
+}
+
+.team-header .MI{
+	color: #00c6ff;
+}
+
+.team-header .rcb{
+	border: 3px solid #a70000;
+	box-shadow: 0 0 12px #a70000;
+}
+
+.team-header .RCB{
+	color: #a70000;
+}
+
+.team-header .kkr{
+	border: 3px solid #ff4081;
+	box-shadow: 0 0 12px #ff4081;
+}
+
+.team-header .KKR{
+	color: #ff4081;
+}
+
+.team-header .srh{
+	border: 3px solid #ffb347;
+	box-shadow: 0 0 12px #ffb347;
+}
+
+.team-header .SRH{
+	color: #ffb347;
+}
+
+.team-header .rr{
+	border: 3px solid #fbb03b;
+	box-shadow: 0 0 12px #fbb03b;
+}
+
+.team-header .RR{
+	color: #fbb03b;
+}
+
+.team-header .dc{
+	border: 3px solid #005eff;
+	box-shadow: 0 0 12px #005eff;
+}
+
+.team-header .DC{
+	color: #005eff;
+}
+
+.team-header .gt{
+	border: 3px solid #004080;
+	box-shadow: 0 0 12px #004080;
+}
+
+.team-header .GT{
+	color: #004080;
+}
+
+.team-header .lsg{
+	border: 3px solid #4caf50;
+	box-shadow: 0 0 12px #4caf50;
+}
+
+.team-header .LSG{
+	color: #4caf50;
+}
+
+.team-header .pbks{
+	border: 3px solid #ff6f61;
+	box-shadow: 0 0 12px #ff6f61;
+}
+
+.team-header .PBKS{
+	color: #ff6f61;
+}
+
+
+/* Nav Links */
+.nav-links {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 20px 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: #fff;
+  display: block;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: crimson;
+  color: #fff;
+  transform: scale(1.05);
+}

@@ -11,7 +11,7 @@ public class Ipl2026Application {
 	public static void main(String[] args) {
 		SpringApplication.run(Ipl2026Application.class, args);
 		
-		System.err.println("**********c** WELCOME TO IPL 2026 **********");
+		System.err.println("************ WELCOME TO IPL 2026 **********");
 	}
 
 }

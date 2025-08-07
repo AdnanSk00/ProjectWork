@@ -50,7 +50,7 @@
 			<a href="/mi-home"><img src="/resources/images/teamLogo/mi.svg" alt="MI"></a>
 			<a href="/rcb-home"><img src="/resources/images/teamLogo/rcb.svg" alt="RCB"></a>
 			<a href="/pbks-home"><img src="/resources/images/teamLogo/pbks.svg" alt="PBKS" class="pbks"></a>
-			<a href="/r-home"><img src="/resources/images/teamLogo/rr.png" alt="RR"></a>
+			<a href="/rr-home"><img src="/resources/images/teamLogo/rr.svg" alt="RR"></a>
 		</div>
 		<div class="team-row">
 			<a href="/dc-home"><img src="/resources/images/teamLogo/dc.svg" alt="DC"></a>

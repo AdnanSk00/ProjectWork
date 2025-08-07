@@ -1,7 +1,11 @@
 package com.tka.ModelEntity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import org.springframework.stereotype.Component;
 
@@ -10,6 +14,7 @@ import org.springframework.stereotype.Component;
 public class Product {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int productId;
 	public String productName;
 	public double price;
@@ -21,6 +26,20 @@ public class Product {
 	public Product() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	@ManyToOne
+	@JoinColumn(name = "bill_id")
+	private Bill bill;
+
+	// Getters and Setters for 'bill'
+	public Bill getBill() {
+		return bill;
+	}
+
+	public void setBill(Bill bill) {
+		this.bill = bill;
+	}
+
 
 	public int getProductId() {
 		return productId;
@@ -75,7 +94,5 @@ public class Product {
 		return "Product [productId=" + productId + ", productName=" + productName + ", price=" + price + ", category="
 				+ category + ", quantity=" + quantity + ", imgPath=" + imgPath + "]";
 	}
-	
-    
-	
+		
 }

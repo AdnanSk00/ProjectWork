@@ -71,10 +71,10 @@ public class shopController {
 	}
 	
 	@PostMapping("/buy-product")
-	public String buyNow(@RequestParam("selectedIds") List<Integer> selectedIds, HttpSession session, Model model) {
+	public String buyNow(@RequestParam("selectedIds") List<Integer> selectedIds, HttpSession session) {
 	    List<Product> cartList = (List<Product>) session.getAttribute("cartList");
 	    List<Product> selectedProducts = new ArrayList<>();
-	    
+
 	    if (cartList != null) {
 	        for (Product p : cartList) {
 	            if (selectedIds.contains(p.getProductId())) {
@@ -83,15 +83,23 @@ public class shopController {
 	        }
 	    }
 
-	    session.setAttribute("lastBill", selectedProducts);  // Save latest bill for billDetails.jsp
+	    double total = selectedProducts.stream().mapToDouble(Product::getPrice).sum();
 
-	    // Add to order history
-	    List<Product> orderList = (List<Product>) session.getAttribute("orderList");
-	    if (orderList == null) {
-	        orderList = new ArrayList<>();
+	    Bill bill = new Bill();
+	    bill.setBillId((int) (Math.random() * 255555));
+	    bill.setTotalAmount(total);
+
+	    // Assign this bill to each product
+	    for (Product p : selectedProducts) {
+	        p.setBill(bill); // Set FK
 	    }
-	    orderList.addAll(selectedProducts);
-	    session.setAttribute("orderList", orderList);
+
+	    bill.setProducts(selectedProducts); // Set list of products in bill
+
+	    billSrvc.saveBill(bill);
+
+	    session.setAttribute("lastBill", selectedProducts);
+	    session.setAttribute("orderList", selectedProducts);
 
 	    return "redirect:/bill-details";
 	}
@@ -99,16 +107,23 @@ public class shopController {
 	@GetMapping("/bill-details")
 	public String getBillDetails(HttpSession session, Model model) {
 	    List<Product> billList = (List<Product>) session.getAttribute("lastBill");
+	    
 	    model.addAttribute("billList", billList);
 
+	    Bill bill = new Bill();
+	    bill.setBillId((int) (Math.random()*255555));
+	    
 	    double total = 0;
 	    if (billList != null) {
 	        for (Product p : billList) {
 	            total += p.getPrice();
 	        }
 	    }
-
-	    model.addAttribute("totalAmount", total);
+	    bill.setTotalAmount(total);
+	    
+	    model.addAttribute("orderId", bill.getBillId());
+	    model.addAttribute("totalAmount", bill.getTotalAmount());
+	    
 	    return "billDetails";  // JSP file
 	}
 
