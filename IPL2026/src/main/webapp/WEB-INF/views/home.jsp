@@ -13,8 +13,6 @@
    </c:otherwise>
 </c:choose>
 
-	
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +27,6 @@
 		<div class="msg" id="RegisterMsg">${msgKeyRegister}</div>
 		<div class="msg" id="UserInsertMsg">${msgKeyUserInsert}</div>
 		<div class="msg" id="addProduct">${msgKey}</div>
-
 		<script>
 			setTimeout(function () {
 				document.getElementById("LoginMsg").style.display = "none";

@@ -8,13 +8,11 @@
 }
 
 body{
-    min-height: 100vh;
-    background: #081b29;
-    min-height: 100vh;
+    min-height: 120vh;	
+    background: #000;
 	display: flex;
 	flex-direction: column;
 	overflow-x: hidden;
-	background: black;
 }
 
 main {
@@ -30,8 +28,8 @@ main {
     width: 750px;
     height: 450px;
     background: transparent;
-    border: 2px solid #0ef;
-    box-shadow: 0 0 25px #0ef;
+    border: 2px solid #01629d;
+    box-shadow: 0 0 25px #01629d;
     overflow: hidden;
 }
 
@@ -130,7 +128,7 @@ main {
 
 .input-box input:focus,
 .input-box input:valid{
-    border-bottom-color: #0ef;
+    border-bottom-color: #01629d;
 }
 
 .input-box label{
@@ -147,7 +145,7 @@ main {
 .input-box input:focus~label,
 .input-box input:valid~label{
     top: -5px;
-    color: #0ef;
+    color: #01629d;
 }
 
 .input-box i{
@@ -164,15 +162,30 @@ main {
 
 .input-box input:focus~image,
 .input-box input:valid~image{
-    color: #0ef;
+    color: #01629d;
 }
+
+.error-label {
+    position: absolute;
+    top: 105%;
+    left: 0;
+    font-size: 13px;
+    color: #ff4c4c;
+    font-weight: 500;
+    animation: fadeIn 0.4s ease-in-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 
 .btn{
     position: relative;
     width: 100%;
     height: 45px;
     background: transparent;
-    border: 2px solid #0ef;
+    border: 2px solid #01629d;
     outline: none;
     border-radius: 40px;
     cursor: pointer;
@@ -190,7 +203,7 @@ main {
     left: 0;
     width: 100%;
     height: 300%;
-    background: linear-gradient(#081b29, #0ef, #081b29, #0ef);
+    background: linear-gradient(#000, #01629d, #000, #01629d);
     z-index: -1;
     transition: .5s;
 }
@@ -207,7 +220,7 @@ main {
 }
 
 .logreg-link p a{
-    color: #0ef;
+    color: #01629d;
     text-decoration: none;
     font-weight: 700;
 }
@@ -294,8 +307,8 @@ main {
     right: 0;
     width: 850px;
     height: 600px;
-    background: linear-gradient(45deg, #081b29, #0ef);
-    border-bottom: 3px solid #0ef;
+    background: linear-gradient(45deg, #000, #01629d);
+    border-bottom: 3px solid #01629d;
     transform: rotate(10deg) skewY(40deg);
     /* transform: rotate(0) skewY(0); */
     transform-origin: bottom right;
@@ -316,8 +329,8 @@ main {
     left: 250px;
     width: 850px;
     height: 700px;
-    background: #081b29;
-    border-top: 3px solid #0ef;
+    background: #000;
+    border-top: 3px solid #01629d;
     /* transform: rotate(-11deg) skewY(-41deg); */
     transform: rotate(0) skewY(0);
     transform-origin: bottom left;
@@ -330,3 +343,11 @@ main {
     transition-delay: 1.2s;
 
 }
+
+.loginMsg{
+	position: absolute;
+    color: lightgreen;
+    bottom: 80px;
+    left: 60px;	
+}
+

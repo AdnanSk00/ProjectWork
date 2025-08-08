@@ -28,7 +28,7 @@ public class shopController {
 	productService productSrvc;
 
 	@GetMapping("/get-shop")
-	public String getShop(Model model) {
+	public String getShop(Model model, HttpSession session) {
 		List<Product> productList = productSrvc.getAllProduct();
 		model.addAttribute("productList", productList);
 		return "shopDetails";
@@ -36,6 +36,9 @@ public class shopController {
 	
 	@GetMapping("/add-to-cart/{id}")
 	public String addToCart(@PathVariable int id, HttpSession session) {
+		if (session.getAttribute("loggedInUser") == null) {
+	        return "redirect:/get-login"; // if not logged in
+	    }
 	    List<Product> cartList = (List<Product>) session.getAttribute("cartList");
 	    if (cartList == null) {
 	        cartList = new ArrayList<>();
@@ -49,6 +52,9 @@ public class shopController {
 	
 	@GetMapping("/view-carts")
 	public String viewCartsDetails(Model model, HttpSession session) {
+		if (session.getAttribute("loggedInUser") == null) {
+	        return "redirect:/get-login"; // if not logged in
+	    }
 		System.err.println("not working...");
 		List<Product> cartList = (List<Product>) session.getAttribute("cartList");
 
@@ -91,16 +97,14 @@ public class shopController {
 
 	    // Assign this bill to each product
 	    for (Product p : selectedProducts) {
-	        p.setBill(bill); // Set FK
+	        p.setBill(bill);
 	    }
 
 	    bill.setProducts(selectedProducts); // Set list of products in bill
-
 	    billSrvc.saveBill(bill);
 
 	    session.setAttribute("lastBill", selectedProducts);
 	    session.setAttribute("orderList", selectedProducts);
-
 	    return "redirect:/bill-details";
 	}
 	
@@ -113,12 +117,7 @@ public class shopController {
 	    Bill bill = new Bill();
 	    bill.setBillId((int) (Math.random()*255555));
 	    
-	    double total = 0;
-	    if (billList != null) {
-	        for (Product p : billList) {
-	            total += p.getPrice();
-	        }
-	    }
+	    double total = billList.stream().mapToDouble(Product::getPrice).sum();
 	    bill.setTotalAmount(total);
 	    
 	    model.addAttribute("orderId", bill.getBillId());
@@ -130,37 +129,37 @@ public class shopController {
 	
 	@GetMapping("/buy-product/{id}")
 	public String buyNow(@PathVariable int id,  Model model, HttpSession session) {
-		Bill bill = new Bill();
-		bill.setBillId((int) (0+Math.random()*255555));
-		int randomId = bill.getBillId();
-		
+		if (session.getAttribute("loggedInUser") == null) {
+	        return "redirect:/get-login"; // if not logged in
+	    }
 		Product product = productSrvc.getProductById(id);
 		List<Product> billList = new ArrayList<>();
 		billList.add(product);
 		
-		List<Product> orderList = (List<Product>) session.getAttribute("orderList");
-		 if (orderList == null) {
-		        orderList = new ArrayList<>();
-		    }
-		orderList.addAll(billList);
-		session.setAttribute("orderList", orderList);
-		System.err.println("orderrrrrr" + orderList);
+		Bill bill = new Bill();
+		bill.setBillId((int) (Math.random()*255555));
+		 bill.setTotalAmount(product.getPrice());
 
-		double totalAmount = product.getPrice();
+		for (Product p : billList) {
+	        p.setBill(bill);
+		}
+
+	    bill.setProducts(billList); // Set list of products in bill
+	    billSrvc.saveBill(bill);
 		
-		model.addAttribute("randomId", randomId);
 		model.addAttribute("billList", billList);
-		model.addAttribute("orderList", orderList);
-		model.addAttribute("totalAmount", totalAmount);
+		model.addAttribute("orderId", bill.getBillId());
+		model.addAttribute("totalAmount", product.getPrice());
 		return "billDetails";
 	}
 	
 	@GetMapping("/view-orders")
 	public String getAllOrders(Model model, HttpSession session) {
-		List<Product> orderList = (List<Product>) session.getAttribute("orderList");
-	    model.addAttribute("orderList", orderList);
-//	    model.addAttribute("randomId", randomId);
-	    
-		return "orderDetails";
+		if (session.getAttribute("loggedInUser") == null) {
+	        return "redirect:/get-login"; // if not logged in
+	    }
+	    List<Bill> orderList = billSrvc.getAllOrders(); // Fetch all bills
+	    model.addAttribute("bills", orderList);
+	    return "orderDetails";
 	}
 }

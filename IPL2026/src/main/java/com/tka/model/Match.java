@@ -19,7 +19,6 @@ public class Match {
     public String date;
     public String time;
     public String status;
-    public String teamLogo;
     
    public Match() {
 
@@ -67,17 +66,11 @@ public class Match {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public String getTeamLogo() {
-		return teamLogo;
-	}
-	public void setTeamLogo(String teamLogo) {
-		this.teamLogo = teamLogo;
-	}
 
 	@Override
 	public String toString() {
 		return "Match [matchNo=" + matchNo + ", team=" + team + ", vsTeam=" + vsTeam + ", location=" + location
-				+ ", date=" + date + ", time=" + time + ", status=" + status + ", teamLogo=" + teamLogo + "]";
+				+ ", date=" + date + ", time=" + time + ", status=" + status + "]";
 	}
     
 	

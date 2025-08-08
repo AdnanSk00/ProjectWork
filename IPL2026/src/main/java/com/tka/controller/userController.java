@@ -1,5 +1,7 @@
 package com.tka.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,20 +19,24 @@ public class userController {
 	userService userSrvc;
 	
 	@PostMapping("/verify-login")
-	public String doLogin(@ModelAttribute User user, Model model) {
+	public String doLogin(@ModelAttribute User user, Model model, HttpSession session){
 		
 		User dbUser = userSrvc.getUserByName(user.getUserName());
 		
 		if(dbUser != null) {
 			if(user.getUserName().equals("Adnan") && user.getPass().equals("1230")) {	
+				session.setAttribute("loggedInUser", "Adnan"); // session for admin
 				System.err.println("working bro...........");
 				model.addAttribute("msgKeyLogin", "Login Successfully...");
 				model.addAttribute("admin", "Ok");
+				model.addAttribute("redirectAfterDelay1", true);
 				return "home";
 			}
 			else if(dbUser.getPass().equals(user.getPass())) {
+				session.setAttribute("loggedInUser", dbUser.getUserName()); // set session attribute
 				model.addAttribute("msgKeyLogin", "Login Successfully...");
-				return "home";
+				model.addAttribute("redirectAfterDelay1", true);
+				return "login";
 			}
 			else {
 				model.addAttribute("wrongPass", "wrong password");
@@ -44,22 +50,22 @@ public class userController {
 	}
 	
 	@PostMapping("/register-user")
-	public String registerUser(@ModelAttribute User User, Model model) {
-		String msg, userMsg;
+	public String registerUser(@ModelAttribute User user, Model model) throws InterruptedException {
+		String userMsg;
 		
-		msg = "Registered successfully!";
-		userMsg = userSrvc.insertUser(User);
+		userMsg = userSrvc.insertUser(user);
 		
-		System.out.println("userName > " + User.getUserName());
-		model.addAttribute("msgKeyRegister", msg);
-		model.addAttribute("msgKeyUserInsert", userMsg);
+		System.out.println("userName > " + user.getUserName());
+		model.addAttribute("msgKeyRegister", "Registered successfully...!");
+		model.addAttribute("redirectAfterDelay2", true);
+		
 		return "home";
 	}
 	
 	@GetMapping("/logout")
-	public String getLogout() {
-		
-		return "home";
+	public String getLogout(HttpSession session) {
+	    session.invalidate(); // remove session
+	    return "redirect:/";
 	}
 	
 }

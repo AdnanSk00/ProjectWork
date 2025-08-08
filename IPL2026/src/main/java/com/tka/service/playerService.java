@@ -15,6 +15,10 @@ public interface playerService {
 	
 	List<Player> getPlayerByteamName(String teamName);
 
+	List<Player> getBattingStats();
+
+	List<Player> getBowlingStats();
+
 	
 	
 	

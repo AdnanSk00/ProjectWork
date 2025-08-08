@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,12 +28,12 @@
 
                     <div class="teams-row">
                         <div class="team">
-                            <img src="${logoPath}" alt="${teamName}" />
-                            <h4>${teamName}</h4>
+                            <img src="/resources/images/teamLogo/${fn:toLowerCase(match.team)}.svg" alt="${match.vsTeam}" />
+                            <h4>${match.team}</h4>
                         </div>
                         <span class="vs-text">VS</span>
                         <div class="team">
-                            <img src="${match.teamLogo}" alt="${match.vsTeam}" />
+                            <img src="/resources/images/teamLogo/${fn:toLowerCase(match.vsTeam)}.svg" alt="${match.vsTeam}" />
                             <h4>${match.vsTeam}</h4>
                         </div>
                     </div>

@@ -36,18 +36,6 @@
 		</c:forEach>
 	</div>
 	
-    <%-- <c:forEach var="bill" items="${bills}">
-	    <h3>Order ID: ${bill.billId}</h3>
-	    <p>Total: ₹${bill.totalAmount}</p>
-	    <c:forEach var="product" items="${bill.products}">
-	        <div class="bill-card">
-	            <img src="${product.imgPath}" alt="">
-	            <p>${product.productName} | ₹${product.price}</p>
-	        </div>
-	    </c:forEach>
-	    <hr>
-	</c:forEach> --%>
-
 </div>
 
 <%@ include file="footer.jsp" %>

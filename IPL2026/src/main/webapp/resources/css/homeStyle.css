@@ -4,14 +4,14 @@ body.home-body {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	background: linear-gradient(to bottom, #0d0d0d, #1a1a2e, #16213e, #0f3460); /* 🔥 merged rich dark gradient */
 	color: white;
-	min-height: 100vh;
+	min-height: 108vh;
 	overflow-x: hidden;
 }
 
 /* IPL Logo Section */
 .ipl-logo-section {
 	text-align: center;
-	padding: 60px 0 30px;
+	padding: 70px 0 30px;
 }
 
 .ipl-main-logo {
@@ -76,4 +76,8 @@ body.home-body {
 	.team-row {
 		gap: 20px;
 	}
+}
+
+.msg{
+    color: lightgreen;
 }

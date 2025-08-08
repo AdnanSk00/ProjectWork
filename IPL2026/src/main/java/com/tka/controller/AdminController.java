@@ -110,7 +110,6 @@ public class AdminController {
 	}
 	@PostMapping("/add-match")
 	public String addmatch(@ModelAttribute Match match, Model model){
-		match.setTeamLogo("/resources/images/teamLogo/" + match.vsTeam.toLowerCase() + ".svg");
 		addMsg = matchSrvc.addMatch(match);
 		model.addAttribute("msgKey", addMsg);
 		model.addAttribute("admin", "Ok");
@@ -122,5 +121,19 @@ public class AdminController {
 		model.addAttribute("matchList", matchList);
 		System.err.println("mateeeee" + matchList);
 		return "allMatchDetails";
+	}
+	
+	@GetMapping("/view-bat")
+	String getBattingStart(Model model) {
+		List<Player> battingList = playerSrvc.getBattingStats();
+		model.addAttribute("battingList", battingList);
+		return "batStat";
+	}
+	
+	@GetMapping("/view-bowl")
+	String getBowlingStart(Model model) {
+		List<Player> bowlingList = playerSrvc.getBowlingStats();
+		model.addAttribute("bowlingList", bowlingList);
+		return "bowlStat";
 	}
 }

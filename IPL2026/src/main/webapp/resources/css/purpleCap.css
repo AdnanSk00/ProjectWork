@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom right, #220033, #000033);
+    color: #eee;
+}
+
+.purplecap-container {
+    width: 90%;
+    margin: 65px auto;
+    padding: 10px;
+}
+
+.purplecap-header {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.cap-icon {
+    width: 60px;
+    vertical-align: middle;
+}
+
+.heading {
+    display: inline-block;
+    font-size: 2.2rem;
+    color: #a020f0; /* Purple */
+    margin-left: 10px;
+    vertical-align: middle;
+    text-shadow: 1px 1px 4px #000;
+}
+
+.card-list-scroll {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.card-list-scroll::-webkit-scrollbar {
+    width: 8px;
+}
+.card-list-scroll::-webkit-scrollbar-thumb {
+    background-color: #a020f0;
+    border-radius: 10px;
+}
+
+.player-card {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    padding: 14px 20px;
+    margin: 20px 0;
+    border-left: 6px solid #a020f0;
+    transition: transform 0.3s ease;
+}
+
+.player-card:hover {
+    transform: scale(1.02);
+}
+
+.player-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 20px;
+    border-radius: 6px;
+    background: #fff;
+}
+
+.player-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    row-gap: 6px;
+}
+
+.player-info p, .player-info {
+    margin: 2px 0;
+    font-size: 16px;
+    color: #e0d5ff;
+}
+
+.player-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d8b3ff;
+    grid-column: span 3;
+    margin: 2px 0;
+}
+
+.player-count span {
+    font-weight: bold;
+}
+.player-wickets {
+    color: #ff99ff;
+}

@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom right, #001f3f, #003366);
+    color: #fff;
+}
+
+.orangecap-container {
+    width: 90%;
+    margin: 65px auto;
+    padding: 10px;
+}
+
+.orangecap-header {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.cap-icon {
+    width: 60px;
+    vertical-align: middle;
+}
+
+.heading {
+    display: inline-block;
+    font-size: 2.2rem;
+    color: orange;
+    margin-left: 10px;
+    vertical-align: middle;
+    text-shadow: 1px 1px 4px #000;
+}
+
+.card-list-scroll {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+/* Scrollbar */
+.card-list-scroll::-webkit-scrollbar {
+    width: 8px;
+}
+.card-list-scroll::-webkit-scrollbar-thumb {
+    background-color: orange;
+    border-radius: 10px;
+}
+
+.player-card {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    padding: 14px 20px;
+    margin: 20px 0;
+    border-left: 6px solid orange;
+    transition: transform 0.3s ease;
+}
+
+.player-card:hover {
+    transform: scale(1.02);
+}
+
+.player-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 20px;
+    border-radius: 6px;
+    background: #fff;
+}
+
+.player-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    row-gap: 6px;
+}
+
+.player-info p, .player-info{
+    margin: 2px 0;
+    font-size: 16px;
+    color: #f0f0f0;
+}
+
+.player-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: orange;
+    grid-column: span 3;
+    margin: 2px 0;
+}
+
+.strike-rate span {
+    font-weight: bold;
+}
+.player-runs{
+    color: #ffcc00;	
+}

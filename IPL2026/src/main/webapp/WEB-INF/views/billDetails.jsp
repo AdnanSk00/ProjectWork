@@ -14,7 +14,7 @@
 <div class="bill-container">
     <h2>🧾 Order Summary</h2>
 	
-	<h3>Order ID: ${randomId}</h3>
+	<h3>Order ID: ${orderId}</h3>
     
     <c:forEach var="product" items="${billList}">
 	    <div class="bill-card">
@@ -30,9 +30,6 @@
 	<p class="total">
 	    <strong>Total Amount:</strong> ₹${totalAmount}
 	</p>
-
-	
-     <%-- <p class="total"><strong>Total Amount:</strong> ₹${product.price}</p> --%>
 
     <div class="thank-you">
         ✅ Thank you for your order! Your product will be delivered soon.

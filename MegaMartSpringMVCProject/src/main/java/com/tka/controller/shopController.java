@@ -43,7 +43,7 @@ public class shopController {
 	    Product product = productSrvc.getProductById(id);
 	    cartList.add(product);
 	    session.setAttribute("cartList", cartList);
-	    System.err.println("cart aaraaaaaaa re" + cartList);
+	    System.err.println("cart aaaaaaaaare re" + cartList);
 	    return "redirect:/get-shop"; 	// page reload
 	}
 	
@@ -52,12 +52,12 @@ public class shopController {
 		System.err.println("not working...");
 		List<Product> cartList = (List<Product>) session.getAttribute("cartList");
 
-	    if (cartList == null) {
-	        cartList = new ArrayList<>();
-	        session.setAttribute("cartList", cartList);
-	    }
+//	    if (cartList == null) {
+//	        cartList = new ArrayList<>();
+//	        session.setAttribute("cartList", cartList);
+//	    }
 	    model.addAttribute("cartList", cartList);
-	    System.err.println("Carrrrrrrrrrtiii" + cartList);
+	    System.err.println("Carrrrrrrrrrtss" + cartList);
 	    return "cartDetails";
 	}
 
@@ -91,44 +91,16 @@ public class shopController {
 
 	    // Assign this bill to each product
 	    for (Product p : selectedProducts) {
-	        p.setBill(bill); // Set FK
+	        p.setBill(bill);
 	    }
 
 	    bill.setProducts(selectedProducts); // Set list of products in bill
-
 	    billSrvc.saveBill(bill);
 
 	    session.setAttribute("lastBill", selectedProducts);
 	    session.setAttribute("orderList", selectedProducts);
-
 	    return "redirect:/bill-details";
 	}
-	
-//	@PostMapping("/buy-product")
-//	public String buyNow(@RequestParam("selectedIds") List<Integer> selectedIds, HttpSession session, Model model) {
-//	    List<Product> cartList = (List<Product>) session.getAttribute("cartList");
-//	    List<Product> selectedProducts = new ArrayList<>();
-//	    
-//	    if (cartList != null) {
-//	        for (Product p : cartList) {
-//	            if (selectedIds.contains(p.getProductId())) {
-//	                selectedProducts.add(p);
-//	            }
-//	        }
-//	    }
-//
-//	    session.setAttribute("lastBill", selectedProducts);  // Save latest bill for billDetails.jsp
-//
-//	    // Add to order history
-//	    List<Product> orderList = (List<Product>) session.getAttribute("orderList");
-//	    if (orderList == null) {
-//	        orderList = new ArrayList<>();
-//	    }
-//	    orderList.addAll(selectedProducts);
-//	    session.setAttribute("orderList", orderList);
-//
-//	    return "redirect:/bill-details";
-//	}
 	
 	@GetMapping("/bill-details")
 	public String getBillDetails(HttpSession session, Model model) {
@@ -139,12 +111,7 @@ public class shopController {
 	    Bill bill = new Bill();
 	    bill.setBillId((int) (Math.random()*255555));
 	    
-	    double total = 0;
-	    if (billList != null) {
-	        for (Product p : billList) {
-	            total += p.getPrice();
-	        }
-	    }
+	    double total = billList.stream().mapToDouble(Product::getPrice).sum();
 	    bill.setTotalAmount(total);
 	    
 	    model.addAttribute("orderId", bill.getBillId());
@@ -163,27 +130,21 @@ public class shopController {
 		
 		Bill bill = new Bill();
 		bill.setBillId((int) (Math.random()*255555));
-		
-		List<Product> orderList = (List<Product>) session.getAttribute("orderList");
-		 if (orderList == null) {
-		        orderList = new ArrayList<>();
-		    }
-		orderList.addAll(billList);
-		session.setAttribute("orderList", orderList);
+		 bill.setTotalAmount(product.getPrice());
 
+		for (Product p : billList) {
+	        p.setBill(bill);
+		}
+
+	    bill.setProducts(billList); // Set list of products in bill
+	    billSrvc.saveBill(bill);
+		
 		model.addAttribute("billList", billList);
-		model.addAttribute("orderList", orderList);
 		model.addAttribute("orderId", bill.getBillId());
 		model.addAttribute("totalAmount", product.getPrice());
 		return "billDetails";
 	}
 	
-//	@GetMapping("/view-orders")
-//	public String getAllOrders(Model model, HttpSession session) {
-//		List<Bill> orderList = billSrvc.getAllOrders();
-//	    
-//		return "orderDetails";
-//	}
 	@GetMapping("/view-orders")
 	public String getAllOrders(Model model) {
 	    List<Bill> orderList = billSrvc.getAllOrders(); // Fetch all bills

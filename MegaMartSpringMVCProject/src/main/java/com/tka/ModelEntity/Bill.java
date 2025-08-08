@@ -17,11 +17,11 @@ public class Bill {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int billId;
+	public int billId;
 	double totalAmount;
 	
 	@OneToMany(mappedBy = "bill", cascade = CascadeType.ALL)
-	private List<Product> products;
+	public List<Product> products;
 	
 	public Bill() {
 		// TODO Auto-generated constructor stub

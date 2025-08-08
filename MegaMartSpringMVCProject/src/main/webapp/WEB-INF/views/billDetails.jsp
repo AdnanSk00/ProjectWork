@@ -20,7 +20,7 @@
 	    <div class="bill-card">
 	        <img src="${product.imgPath}" alt="Product Image">
 	        <div class="bill-details">
-	            <h3>${product.productName}</h3>
+	            <h3>Product: ${product.productName}</h3>
 	            <p><strong>Category:</strong> ${product.category}</p>
 	            <p><strong>Quantity:</strong> 1</p>
 	            <p><strong>Unit Price:</strong> ₹${product.price}</p>
@@ -32,9 +32,6 @@
 	<p class="total">
 	    <strong>Total Amount:</strong> ₹${totalAmount}
 	</p>
-
-	
-     <%-- <p class="total"><strong>Total Amount:</strong> ₹${product.price}</p> --%>
 
     <div class="thank-you">
         ✅ Thank you for your order! Your product will be delivered soon.

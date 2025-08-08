@@ -29,7 +29,7 @@ public class Product {
 	
 	@ManyToOne
 	@JoinColumn(name = "bill_id")
-	private Bill bill;
+	public Bill bill;
 
 	// Getters and Setters for 'bill'
 	public Bill getBill() {
