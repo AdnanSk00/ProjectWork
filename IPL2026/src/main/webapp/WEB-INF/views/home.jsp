@@ -22,17 +22,19 @@
 </head>
 
 <body class="home-body">
-	<c:if test="${not empty msgKeyLogin || not empty msgKeyRegister || not empty msgKey}">
+	<c:if test="${not empty msgKeyLogin || not empty msgKeyRegister || not empty msgKey || not empty msgKeyLogout}">
 		<div class="msg" id="LoginMsg">${msgKeyLogin}</div>
 		<div class="msg" id="RegisterMsg">${msgKeyRegister}</div>
 		<div class="msg" id="UserInsertMsg">${msgKeyUserInsert}</div>
 		<div class="msg" id="addProduct">${msgKey}</div>
+		<div class="msg" id="LogoutMsg">${msgKeyLougout}</div>
 		<script>
 			setTimeout(function () {
 				document.getElementById("LoginMsg").style.display = "none";
 				document.getElementById("RegisterMsg").style.display = "none";
 				document.getElementById("UserInsertMsg").style.display = "none";
 				document.getElementById("addProduct").style.display = "none";
+				document.getElementById("LogoutMsg").style.display = "none";
 			}, 2000);
 		</script>
 	</c:if>

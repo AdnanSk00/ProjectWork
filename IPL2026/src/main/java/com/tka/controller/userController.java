@@ -63,9 +63,11 @@ public class userController {
 	}
 	
 	@GetMapping("/logout")
-	public String getLogout(HttpSession session) {
+	public String getLogout(HttpSession session, Model model) {
 	    session.invalidate(); // remove session
-	    return "redirect:/";
+	    model.addAttribute("msgKeyLogout", "Login Successfully...");
+//	    return "redirect:/";
+	    return "home";
 	}
 	
 }

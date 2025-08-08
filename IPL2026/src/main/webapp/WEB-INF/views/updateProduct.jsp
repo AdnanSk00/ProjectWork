@@ -8,7 +8,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="/resources/css/updateStyle.css" />
+	<link rel="stylesheet" type="text/css" href="/resources/css/updateProductStyle.css" />
 	<title>Update Product | IPL</title>
 	
 </head>
@@ -19,20 +19,20 @@
             <form action="/update-product" method="post">
                 <h2>Update Product</h2>
                 <div class="input-group">
-                    <input  type="number" name="productId" value="${product.productId}" required readonly>
                     <label for="">Product ID</label>
+                    <input  type="number" name="productId" value="${product.productId}" required readonly>
                 </div>
                 <div class="input-group">
-                    <input type="text" name="productName" value="${product.productName}" required>
                     <label for="">Product Name</label>
+                    <input type="text" name="productName" value="${product.productName}" required>
                 </div>
                 <div class="input-group">
-                    <input type="number" step="0.01" name="price" value="${product.price}" required>
                     <label for="">(₹)Price</label>
+                    <input type="number" step="0.01" name="price" value="${product.price}" required>
                 </div>
                 <div class="input-group">
-                    <input type="number" name="quantity" value="${product.quantity}" required>
                     <label for="">Quantity</label>
+                    <input type="number" name="quantity" value="${product.quantity}" required>
                 </div>
                 <button class="btn" type="submit">Update Product</button>
             </form>

@@ -103,6 +103,13 @@
 		        }, 2500); // 3000 ms = 3 seconds
 		    </script>
 		</c:if>
+		<c:if test="${not empty redirectAfterDelay1}">
+		    <script>
+		        setTimeout(function() {
+		            window.location.href = "/";
+		        }, 2500); // 3000 ms = 3 seconds
+		    </script>
+		</c:if>
 
 		<script type="text/javascript">
 			const wrapper = document.querySelector(".wrapper")

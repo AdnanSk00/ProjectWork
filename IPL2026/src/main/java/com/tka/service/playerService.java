@@ -13,11 +13,19 @@ public interface playerService {
 	
 	List<Player> getAllPlayers();
 	
+	Player getPlayerById(int id);
+	
+	String updatePlayer(Player player);
+	
+	String deletePlayer(int id);
+	
 	List<Player> getPlayerByteamName(String teamName);
 
 	List<Player> getBattingStats();
 
 	List<Player> getBowlingStats();
+
+
 
 	
 	

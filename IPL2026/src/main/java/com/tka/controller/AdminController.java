@@ -64,10 +64,10 @@ public class AdminController {
 		return "allProductDetails";
 	}
 	@GetMapping("/get-updateProduct/{id}")
-	public String getUpdate(@PathVariable int id, Model model) {
+	public String getUpdateProduct(@PathVariable int id, Model model) {
 		Product product = productSrvc.getProductById(id);
 		model.addAttribute("product", product);
-		return "update";
+		return "updateProduct";
 	}
 	@PostMapping("/update-product")
 	public String updateProduct(@ModelAttribute Product product, Model model) {
@@ -102,6 +102,25 @@ public class AdminController {
 		model.addAttribute("playerList", playerList);
 		return "allPlayerDetails";
 	}
+	@GetMapping("/get-updatePlayer/{id}")
+	public String getUpdatePlayer(@PathVariable int id, Model model) {
+		Player player = playerSrvc.getPlayerById(id);
+		model.addAttribute("player", player);
+		return "updatePlayer";
+	}
+	@PostMapping("/update-player")
+	public String updateProduct(@ModelAttribute Player player, Model model) {
+		player.setImgPath("/resources/images/" + player.pname.toLowerCase() + ".jpg");
+		updMsg = playerSrvc.updatePlayer(player);
+		model.addAttribute("updMsg", updMsg);
+		return getAllPlayers(model);
+	}
+	@GetMapping("/deletePlayer/{id}")
+	public String deletePlayer(@PathVariable int id,  Model model) {
+		delMsg = playerSrvc.deletePlayer(id);
+		model.addAttribute("delMsg", delMsg);
+		return getAllPlayers(model);
+	}
 	
 	
 	@GetMapping("/get-match")
@@ -122,6 +141,26 @@ public class AdminController {
 		System.err.println("mateeeee" + matchList);
 		return "allMatchDetails";
 	}
+	@GetMapping("/get-updateMatch/{id}")
+	public String getUpdateMatch(@PathVariable int id, Model model) {
+		Match match = matchSrvc.getMatchById(id);
+		model.addAttribute("match", match);
+		return "updateMatch";
+	}
+	@PostMapping("/update-match")
+	public String updateProduct(@ModelAttribute Match match, Model model) {
+		updMsg = matchSrvc.updateMatch(match);
+		model.addAttribute("updMsg", updMsg);
+		return getAllMatches(model);
+	}
+	@GetMapping("/deleteMatch/{id}")
+	public String deletematch(@PathVariable int id,  Model model) {
+		delMsg = matchSrvc.deletematch(id);
+		model.addAttribute("delMsg", delMsg);
+		return getAllMatches(model);
+	}
+	
+
 	
 	@GetMapping("/view-bat")
 	String getBattingStart(Model model) {

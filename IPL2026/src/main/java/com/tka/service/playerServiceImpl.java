@@ -35,7 +35,28 @@ public class playerServiceImpl implements playerService{
 	public List<Player> getAllPlayers() {
 		return playerDao.findAll();
 	}
+	
+	@Override
+	public Player getPlayerById(int id) {
+		return playerDao.getById(id);
+	}
+	@Override
+	public String updatePlayer(Player player) {
+		Player addPlayer = playerDao.save(player);
+		if(addPlayer != null) {
+			return player.getPname() + " updated successfully...";			
+		} else {
+			return player.getPname() + " failed to update";
+		}
+	}
+	@Override
+	public String deletePlayer(int id) {
+		playerDao.deleteById(id);
+		return "player deleted successfully...";
+	}
 
+	
+	
 	@Override
 	public List<Player> getPlayerByteamName(String pteamName) {
 		return playerDao. findBypteamName(pteamName);
@@ -59,35 +80,6 @@ public class playerServiceImpl implements playerService{
 		return bowlingList;
 	}
 	
-
 	
-	
-//	@Override
-//	public List<Product> getAllProduct() {
-//	}
-//
-//	@Override
-//	public Product getProductById(int id) {
-//		return prodDao.getById(id);
-//	}
-//
-//	@Override
-//	public String updateProduct(Product product) {
-//		Product addProduct = prodDao.save(product);
-//		if(addProduct != null) {
-//			return product.getProductName() + " updated successfully...";			
-//		} else {
-//			return product.getProductName() + " failed to update";
-//		}
-//	}
-//
-//	@Override
-//	public String deleteProduct(int id) {
-//		prodDao.deleteById(id);
-//		return "product deleted successfully...";
-//	}
-
-	
-
 	
 }

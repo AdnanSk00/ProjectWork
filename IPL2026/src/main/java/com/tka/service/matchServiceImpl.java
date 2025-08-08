@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.tka.dao.matchDaoJPA;
 import com.tka.model.Match;
+import com.tka.model.Product;
 
 @Service
 public class matchServiceImpl implements matchService{
@@ -29,38 +30,35 @@ public class matchServiceImpl implements matchService{
 	public List<Match> getAllMatches() {
 		return matchDao.findAll();
 	}
+	
+	@Override
+	public Match getMatchById(int id) {
+		return matchDao.getById(id);
+	}
 
+	@Override
+	public String updateMatch(Match match) {
+		Match addMatch = matchDao.save(match);
+		if(addMatch != null) {
+			return "Match updated successfully...";			
+		} else {
+			return match.getTeam() + "Match failed to update";
+		}
+	}
+	
+	@Override
+	public String deletematch(int id) {
+		matchDao.deleteById(id);
+		return "Match deleted successfully...";
+
+	}
+	
+	
 	@Override
 	public List<Match> getMatchByteamName(String team) {
 		return matchDao.findByteam(team);
 	}
-	
-	
-	
-//	@Override
-//	public String addPlayer(Player player) {
-//		Player addPlayer = playerDao.save(player);
-//		if(addPlayer != null) {
-//			return player.getPname() + " added successfully...";			
-//		} else {
-//			return player.getPname() + " failed to add";
-//		} 
-//	}
-	
-//	@Override
-//	public List<Player> getAllPlayers() {
-//		return playerDao.findAll();
-//	}
-//
-//	@Override
-//	public List<Player> getPlayerByteamName(String upperCase) {
-//		return playerDao.findAll();
-//	}
-	
-	
-	
-	
-	
+
 
 	
 }

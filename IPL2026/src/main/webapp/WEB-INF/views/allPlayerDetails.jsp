@@ -13,7 +13,16 @@
 	
 </head>
 <body>
-	<h3 class="msg" style="color:green;">${updMsg}</h3>
+	<c:if test="${not empty delMsg || not empty updMsg}">
+		<h3 class="msg" id="UpdMsg" style="color:green;">${updMsg}</h3>
+		<h3 class="msg" id="DelMsg" style="color:green;">${delMsg}</h3>
+		<script>
+			setTimeout(function () {
+				document.getElementById("UpdMsg").style.display = "none";
+				document.getElementById("DelMsg").style.display = "none";
+			}, 2000);
+		</script>
+	</c:if>
 	<main class="main">
 		<table class="table" border="1" cellpadding="6" cellspacing="1">
 			<caption> <h1> Player Details </h1></caption>
@@ -48,13 +57,8 @@
 	</main>
 	
 <%@ include file="footer.jsp" %>
+
 	<script type="text/javascript">
-		setTimeout(() => {
-			let msg = document.getElementsByClassName("msg")[0];
-			if (msg) {
-				msg.style.display = "none";
-			}
-		}, 2000);
 	</script>
 </body>
 

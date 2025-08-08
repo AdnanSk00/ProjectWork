@@ -8,7 +8,7 @@
 <body>
     <header class="admin-header">
         <div class="nav-left">
-            <a href="/">🏠 Home</a>
+            <a href="/">🏠 Dashboard</a>
 
             <div class="dropdown">
                 <button class="dropbtn">📦 Products</button>
@@ -38,6 +38,14 @@
         </div>
 
         <div class="nav-right">
+        	<div class="dropdown">
+                <button class="dropbtn">🛍️ Shopping</button>
+                <div class="dropdown-content">
+                    <a href="/get-shop">Shop</a>
+            		<a href="/view-carts">Carts</a>
+           	 		<a href="/view-orders">Orders</a>
+                </div>
+            </div>
             <a href="/logout" class="logout-btn">🔒 Logout</a>
         </div>
     </header>

@@ -13,7 +13,12 @@ public interface matchService {
 
 	List<Match> getAllMatches();
 
-	List<Match> getMatchByteamName(String team);
+	Match getMatchById(int id);
 
+	String deletematch(int id);
+
+	String updateMatch(Match match);
+
+	List<Match> getMatchByteamName(String team);
 	
 }
