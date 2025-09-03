@@ -1,0 +1,123 @@
+/* ====== Global Styles ====== */
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background: #a4a0ab;
+	display: flex;
+	flex-direction: column;
+	color: #291a4e;
+	overflow-x: hidden;
+}
+
+/* ====== Product Section ====== */
+.product-section {
+	padding: 40px 20px;
+	background-color: #f1f1f1;
+	text-align: center;
+	color: black;
+}
+
+.products {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 20px;
+	padding-bottom: 45px;
+}
+
+/* ====== Product Card ====== */
+.product-card {
+	width: 220px;
+	padding: 15px;
+	border: 1px solid #ccc;
+	background-color: white;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.product-card:hover {
+	transform: scale(1.05);
+}
+
+.product-card img {
+	width: 100%;
+	height: 160px;
+	object-fit: contain;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+
+/* ====== Product Info ====== */
+.product-info {
+	min-height: 110px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.product-info h4 {
+	font-size: 1.4rem;
+	margin: 6px 0;
+}
+
+.product-info p {
+	font-size: 0.95rem;
+	margin: 2px 0;
+	font-weight: bold;
+	color: #333;
+}
+
+/* ====== Buttons ====== */
+.product-buttons {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	gap: 8px;
+	margin-top: 10px;
+}
+
+.btn-cart,
+.btn-buy {
+	flex: 1;
+	display: inline-block;
+	padding: 6px 0;
+	border-radius: 5px;
+	text-decoration: none;
+	text-align: center;
+	font-size: 0.8rem;
+	font-weight: bold;
+	white-space: nowrap; /* ✅ Prevent wrapping */
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+/* Add to Cart button */
+.btn-cart {
+	background-color: #007bff;
+	color: white;
+	border: none;
+}
+
+.btn-cart:hover {
+	background-color: #0056b3;
+}
+
+/* Buy Now button */
+.btn-buy {
+	background-color: #ff9600;
+	color: white;
+	border: none;
+}
+
+.btn-buy:hover {
+	background-color: #c57400;
+}
